@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap";
+
+$main_color:  #1B2F33;
+$second_color: #842930;
+$third_color: #C82D38;
+$dark: #0A1112;
+$light: #F2F6F6;
+$width_logo: 50px;
+
+body {
+    background-color: lightgray;
+}
+
+h1 {
+    color: blue;
+}
+
+.navbar {
+    background-color: $main_color;
+    a {
+        color: $light;
+        img {
+            width: $width_logo;
+        }
+    }
+}
