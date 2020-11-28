@@ -6,17 +6,25 @@ $third_color: #C82D38;
 $dark: #0A1112;
 $light: #F2F6F6;
 $width_logo: 50px;
+$height-navbar: 75px;
+$spacing: 8px;
+$spacing2: $spacing * 2;
+$spacing3: $spacing * 3;
 
 body {
     background-color: lightgray;
+    margin-top: $height-navbar;
 }
 
 h1 {
-    color: blue;
+    color: $second_color;
+    text-align: center;
+    padding-top: $spacing2;
 }
 
 .navbar {
     background-color: $main_color;
+    height: $height-navbar;
     a {
         color: $light;
         img {
