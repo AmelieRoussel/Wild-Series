@@ -10,6 +10,7 @@ $height-navbar: 75px;
 $spacing: 8px;
 $spacing2: $spacing * 2;
 $spacing3: $spacing * 3;
+$height_img: 500px;
 
 body {
     background-color: lightgray;
@@ -20,6 +21,7 @@ h1 {
     color: $second_color;
     text-align: center;
     padding-top: $spacing2;
+    margin: $spacing3;
 }
 
 .navbar {
@@ -31,4 +33,12 @@ h1 {
             width: $width_logo;
         }
     }
+}
+
+img.poster {
+    max-height: $height_img;
+}
+
+.card {
+    max-width: 350px;
 }
