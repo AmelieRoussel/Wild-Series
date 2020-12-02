@@ -12,7 +12,7 @@
             <ul>
                 {% for episode in season.episodes %}
                     <li>
-                        <a href="">Épisode {{ episode.number }} : {{ episode.title }}</a>
+                        <a href="{{ path("program_episode_show", { program: program.id , season: season.id, episode: episode.id }) }}">Épisode {{ episode.number }} : {{ episode.title }}</a>
                     </li>
                 {% else %}
                     Aucun épisode
