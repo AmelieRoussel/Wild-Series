@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap');
 @import "~bootstrap/scss/bootstrap";
 
-$main_color:  #1B2F33;
+$main_color: #1B2F33;
 $second_color: #842930;
 $third_color: #C82D38;
 $dark: #0A1112;
@@ -15,58 +15,181 @@ $height-navbar: 75px;
 $spacing: 8px;
 $spacing2: $spacing * 2;
 $spacing3: $spacing * 3;
-$height_img: 500px;
+$spacing4: $spacing * 4;
+$spacing5: $spacing * 5;
+$spacing6: $spacing * 6;
+$height_img: 535px;
+$border_radius: 5px;
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: lightgray;
-    margin-top: $height-navbar;
-    font-family: $text_font;
-    color: $dark;
+  background-color: $main_color;
+  margin-top: $height-navbar;
+  font-family: $text_font;
+  color: $dark;
 }
 
 h1 {
-    text-align: center;
-    padding-top: $spacing2;
-    margin: $spacing3;
-    font-weight: $bold;
+  text-align: center;
+  padding-top: $spacing3;
+  margin: $spacing6;
+  font-weight: $bold;
 }
 
 h1, h2, h3 {
-    color: $second_color;
-    font-family: $title_font;
+  color: $second_color;
+  font-family: $title_font;
 }
 
-a {
-    color: $dark;
-    &:hover {
-        text-decoration: none;
-        color: $dark;
-    }
-}
+.btn {
+  background-color: $second_color;
+  border: 2px solid $main_color;
+  color: $light;
+  border-radius: $border_radius;
+  padding: $spacing $spacing2;
+  margin-top: $spacing3;
 
-.navbar {
-    background-color: $main_color;
-    min-height: $height-navbar;
-    a {
-        color: $light;
-        img {
-            width: $width_logo;
-        }
-    }
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(132, 41, 48)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-img.poster {
-    max-height: $height_img;
+  &:hover {
+    background-color: $third_color;
+  }
 }
 
 .card {
-    max-width: 350px;
+  background-color: $light;
+}
+
+a {
+  color: $dark;
+
+  &:hover {
+    text-decoration: none;
+    color: $dark;
+  }
+}
+
+.navbar {
+  background-color: $second_color;
+  min-height: $height-navbar;
+  box-shadow: 4px 3px 4px $main_color;
+
+  a {
+    color: $light;
+
+    &:hover {
+      color: $main_color;
+    }
+
+    img {
+      width: $width_logo;
+    }
+  }
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(27, 47, 51)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+img.poster {
+  max-height: $height_img;
+}
+
+.home {
+  header {
+    height: 40vh;
+    background-color: $main_color;
+    h1 {
+      color: $second_color;
+      font-size: 140px;
+      margin: 0;
+      padding: 0;
+      img {
+        width: 200px;
+      }
+    }
+  }
+}
+
+.category-index {
+  .row {
+    column-gap: 20px;
+  }
+
+  .back a {
+    color: $light;
+
+    &:hover {
+      color: $second-color;
+    }
+  }
+}
+
+.program-index {
+  .row {
+    column-gap: 20px;
+
+    .poster {
+      width: 100%;
+    }
+  }
+
+  .ml-md-5 {
+    margin-left: 6.5rem;
+  }
+
+  .back a {
+    color: $light;
+
+    &:hover {
+      color: $second-color;
+    }
+  }
+}
+
+.program-show {
+  .card-img {
+    width: auto;
+
+    img {
+      height: $height_img;
+    }
+  }
+
+  .card {
+    background-color: $main_color;
+    color: $light;
+    border: none;
+  }
+
+  a {
+    color: $light;
+  }
+}
+
+.form {
+  label {
+    color: $light;
+    margin-top: $spacing3;
+  }
+
+  input, textarea, select {
+    width: 100%;
+  }
+
+  li {
+    color: $third_color;
+    list-style: none;
+  }
+
+  a {
+    color: $light;
+  }
+}
+
+.show {
+  td, th, a {
+    color: $light;
+  }
 }

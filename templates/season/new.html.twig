@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Season{% endblock %}
+{% block title %}{{ parent() }} | Ajouter une saison{% endblock %}
 
 {% block body %}
-    <h1>Create new Season</h1>
+    <h1 class="text-center my-4">Ajouter une nouvelle saison</h1>
+    <div class="container form">
+        {{ include('season/_form.html.twig') }}
 
-    {{ include('season/_form.html.twig') }}
-
-    <a href="{{ path('season_index') }}">back to list</a>
+        <div class="back my-4">
+            <a href="{{ path('season_index') }}">Retour</a>
+        </div>
+    </div>
 {% endblock %}

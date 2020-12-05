@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Episode{% endblock %}
+{% block title %}{{ parent() }} | Modifier un épisode{% endblock %}
 
 {% block body %}
-    <h1>Edit Episode</h1>
+    <h1 class="text-center my-4">Modifier l'épisode</h1>
+    <div class="container form">
+        {{ include('episode/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    {{ include('episode/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="back my-4">
+            {{ include('episode/_delete_form.html.twig') }}
+        </div>
 
-    <a href="{{ path('episode_index') }}">back to list</a>
+        <div class="back my-4">
+            <a href="{{ path('episode_index') }}">Retour</a>
+        </div>
 
-    {{ include('episode/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
