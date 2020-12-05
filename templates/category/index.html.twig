@@ -1,19 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All categories{% endblock %}
+{% block title %}Catégories{% endblock %}
 
 {% block body %}
-    <h1>Toutes les catégories de la table category : </h1>
-    {% for category in categories %}
-        <div>
-            <h2>{{ loop.index }} / {{ category.name }}</h2>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}">Voir les séries</a>
+    <h1 class="text-center my-4">Catégories</h1>
+    <div class="container category-index">
+        <div class="row">
+            {% for category in categories %}
+                <div class="card mb-3" style="width: 16rem; height: 15rem;">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h2 class="card-title">{{ loop.index }} - {{ category.name }}</h2>
+                        <a href="{{ path("category_show", { categoryName: category.name }) }}" class="card-link">Voir les séries</a>
+                    </div>
+                </div>
+            {% else %}
+                Aucune categorie trouvée.
+            {% endfor %}
         </div>
-    {% else %}
-        Aucune categorie trouvée.
-    {% endfor %}
 
-    <a href="{{ path('app_index') }}">
-        Retour à l'accueil
-    </a>
+        <div><a href="{{ path('category_new') }}">
+                Ajouter une catégorie
+            </a></div>
+        <a href="{{ path('app_index') }}">
+            Retour à l'accueil
+        </a>
+    </div>
 {% endblock %}

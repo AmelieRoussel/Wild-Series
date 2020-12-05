@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap');
 @import "~bootstrap/scss/bootstrap";
 
 $main_color:  #1B2F33;
@@ -5,6 +6,10 @@ $second_color: #842930;
 $third_color: #C82D38;
 $dark: #0A1112;
 $light: #F2F6F6;
+$text_font: 'Open Sans', sans-serif;
+$title_font: 'Lato', sans-serif;
+$bold: 700;
+$text_font_size: 1rem;
 $width_logo: 50px;
 $height-navbar: 75px;
 $spacing: 8px;
@@ -12,27 +17,50 @@ $spacing2: $spacing * 2;
 $spacing3: $spacing * 3;
 $height_img: 500px;
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: lightgray;
     margin-top: $height-navbar;
+    font-family: $text_font;
+    color: $dark;
 }
 
 h1 {
-    color: $second_color;
     text-align: center;
     padding-top: $spacing2;
     margin: $spacing3;
+    font-weight: $bold;
+}
+
+h1, h2, h3 {
+    color: $second_color;
+    font-family: $title_font;
+}
+
+a {
+    color: $dark;
+    &:hover {
+        text-decoration: none;
+        color: $dark;
+    }
 }
 
 .navbar {
     background-color: $main_color;
-    height: $height-navbar;
+    min-height: $height-navbar;
     a {
         color: $light;
         img {
             width: $width_logo;
         }
     }
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(132, 41, 48)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 img.poster {
