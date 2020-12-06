@@ -205,6 +205,15 @@ img.poster {
   a {
     color: $light;
   }
+  #program_actors {
+    display: flex;
+    align-items: center;
+    margin-top: -$spacing3;
+    input {
+      width: 0;
+      margin: 0 $spacing;
+    }
+  }
 }
 
 .show {
