@@ -100,11 +100,13 @@ img.poster {
   header {
     height: 40vh;
     background-color: $main_color;
+
     h1 {
       color: $second_color;
       font-size: 140px;
       margin: 0;
       padding: 0;
+
       img {
         width: 200px;
       }
@@ -113,6 +115,20 @@ img.poster {
 }
 
 .category-index {
+  .row {
+    column-gap: 20px;
+  }
+
+  .back a {
+    color: $light;
+
+    &:hover {
+      color: $second-color;
+    }
+  }
+}
+
+.actor-index {
   .row {
     column-gap: 20px;
   }
@@ -165,6 +181,9 @@ img.poster {
 
   a {
     color: $light;
+    &:hover {
+      color: $second_color;
+    }
   }
 }
 

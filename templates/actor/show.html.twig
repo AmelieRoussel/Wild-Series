@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | {{ actor.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ actor.name }}</h1>
+    <div class="container-fluid program-index">
+        <div class="row mx-0 ml-md-5 pl-md-5 justify-content-center justify-content-md-start">
+            {% for program in programs %}
+                <div class="card mb-3" style="width: 24rem;">
+                    <div class="card-img text-center">
+                        <a href="{{ path("program_show", { id: program.id }) }}" class="card-link">
+                            <img class="poster" src="{{ program.poster }}" alt="{{ program.title }} poster">
+                        </a>
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <a href="{{ path("program_show", { id: program.id }) }}" class="card-link">
+                                <h2 class="card-title">{{ program.title }}</h2>
+                            </a>
+                            <p>{{  program.summary }}</p>
+                        </div>
+                        <p>Catégorie : {{ program.category.name }}</p>
+                    </div>
+                </div>
+            {% else %}
+                Aucune série trouvée.
+            {% endfor %}
+        </div>
+
+        <div class="back my-4">
+            <a href="{{ path('actor_index') }}">
+                Retour à la liste des acteurs
+            </a>
+        </div>
+    </div>
+{% endblock %}

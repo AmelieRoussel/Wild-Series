@@ -12,6 +12,13 @@
                 <div class="card-body d-flex flex-column">
                     <p>{{ program.summary }}</p>
                     <p>Catégorie : {{ program.category.name }}</p>
+                    <p>Acteurs :
+                        {% for actor in program.actors %}
+                            <a href="{{ path("actor_show", { id: actor.id }) }}">{{ actor.name }},</a>
+                        {% else %}
+                            Aucun acteur pour cette série
+                        {% endfor %}
+                    </p>
                     <div class="d-flex flex-column mt-5">
                         <p>Saisons disponibles :</p>
                         {% for season in seasons %}
