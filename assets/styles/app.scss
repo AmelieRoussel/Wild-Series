@@ -98,14 +98,11 @@ img.poster {
 
 .home {
   header {
-    height: 40vh;
     background-color: $main_color;
-
+    max-height: 85vh;
     h1 {
       color: $second_color;
       font-size: 140px;
-      margin: 0;
-      padding: 0;
 
       img {
         width: 200px;
@@ -205,14 +202,9 @@ img.poster {
   a {
     color: $light;
   }
-  #program_actors {
-    display: flex;
-    align-items: center;
-    margin-top: -$spacing3;
-    input {
-      width: 0;
-      margin: 0 $spacing;
-    }
+  input[type="checkbox"] {
+    width: auto;
+    margin: $spacing $spacing $spacing $spacing3;
   }
 }
 
