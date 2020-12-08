@@ -70,15 +70,12 @@ class CategoryController extends AbstractController
     /**
      * Getting all programs by category's name
      *
-     * @Route("/{categoryName<^[a-zA-Z]+$>}", methods={"GET"}, name="show")
-     * @param string $categoryName
+     * @Route("/{category<^[0-9]+$>}", methods={"GET"}, name="show")
+     * @param Category $category
      * @return Response
      */
-    public function show(string $categoryName)
+    public function show(Category $category): Response
     {
-        $category = $this->getDoctrine()
-            ->getRepository(Category::class)
-            ->findOneBy(['name' => $categoryName]);
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findBy(
@@ -87,7 +84,7 @@ class CategoryController extends AbstractController
                 3);
         if (!$programs) {
             throw $this->createNotFoundException(
-                'No program in : ' . $categoryName . ' category found in program\'s table.'
+                'No program found in program\'s table.'
             );
         }
         return $this->render('category/show.html.twig', [

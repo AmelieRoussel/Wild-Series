@@ -1,0 +1,9 @@
+<div class="col-md-6 offset-md-3 my-5">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    <div class="col button text-center">
+        <button type="submit" class="btn">{{ button_label|default('Ajouter') }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>

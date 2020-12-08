@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ProgramType;
+use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,40 +23,12 @@ class ProgramController extends AbstractController
      * @Route("/", name="index")
      * @return Response A response instance
      */
-    public function index(): Response
+    public function index(ProgramRepository $programRepository): Response
     {
-        $programs = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findAll();
-
         return $this->render('program/index.html.twig', [
-            'programs' => $programs
+            'programs' => $programRepository->findAll()
         ]);
     }
-
-    /**
-     * The controller for the program add form
-     *
-     * @Route("/new", name="new")
-     * @param Request $request
-     * @return Response
-     */
-    public function new(Request $request): Response
-    {
-        $program = new Program();
-        $form = $this->createForm(ProgramType::class, $program);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($program);
-            $entityManager->flush();
-            return $this->redirectToRoute('program_index');
-        }
-        return $this->render('program/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
 
     /**
      * Getting a program by id

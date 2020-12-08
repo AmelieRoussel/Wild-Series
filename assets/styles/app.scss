@@ -100,6 +100,7 @@ img.poster {
   header {
     background-color: $main_color;
     max-height: 85vh;
+
     h1 {
       color: $second_color;
       font-size: 140px;
@@ -178,6 +179,7 @@ img.poster {
 
   a {
     color: $light;
+
     &:hover {
       color: $second_color;
     }
@@ -202,6 +204,7 @@ img.poster {
   a {
     color: $light;
   }
+
   input[type="checkbox"] {
     width: auto;
     margin: $spacing $spacing $spacing $spacing3;
@@ -211,5 +214,9 @@ img.poster {
 .show {
   td, th, a {
     color: $light;
+
+    .btn {
+      width: 100%;
+    }
   }
 }
