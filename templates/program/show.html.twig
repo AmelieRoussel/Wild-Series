@@ -14,7 +14,7 @@
                     <p>Catégorie : {{ program.category.name }}</p>
                     <p>Acteurs :
                         {% for actor in program.actors %}
-                            <a href="{{ path("actor_show", { id: actor.id }) }}">{{ actor.name }},</a>
+                            <a href="{{ path("actor_show", { slug: actor.slug }) }}">{{ actor.name }},</a>
                         {% else %}
                             Aucun acteur pour cette série
                         {% endfor %}

@@ -31,7 +31,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id<^[0-9]+$>}", methods={"GET"}, name="show")
+     * @Route("/{slug}", methods={"GET"}, name="show")
      * @param Actor $actor
      * @return Response
      */

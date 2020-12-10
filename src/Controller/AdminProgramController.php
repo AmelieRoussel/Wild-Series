@@ -4,13 +4,12 @@ namespace App\Controller;
 
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Program;
-use App\Entity\Season;
-use App\Entity\Episode;
 
 /**
  * @Route("/admin/programs", name="admin_program_")
@@ -30,7 +29,31 @@ class AdminProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id<^[0-9]+$>}", methods={"GET"}, name="show")
+     * @Route("/new", name="new", methods={"GET","POST"})
+     * @param Request $request
+     * @param Slugify $slugify
+     * @return Response
+     */
+    public function new(Request $request, Slugify $slugify): Response
+    {
+        $program = new Program();
+        $form = $this->createForm(ProgramType::class, $program);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $slug = $slugify->generate($program->getTitle());
+            $program->setSlug($slug);
+            $entityManager->persist($program);
+            $entityManager->flush();
+            return $this->redirectToRoute('admin_program_index');
+        }
+        return $this->render('program/admin/new.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{slug}", methods={"GET"}, name="show")
      * @param Program $program
      * @return Response
      */
@@ -38,7 +61,7 @@ class AdminProgramController extends AbstractController
     {
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program found in promgram\'s table.'
+                'No program found in program\'s table.'
             );
         }
 
@@ -50,39 +73,22 @@ class AdminProgramController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
-     * @param Request $request
-     * @return Response
-     */
-    public function new(Request $request): Response
-    {
-        $program = new Program();
-        $form = $this->createForm(ProgramType::class, $program);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($program);
-            $entityManager->flush();
-            return $this->redirectToRoute('admin_program_index');
-        }
-        return $this->render('program/admin/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Program $program
+     * @param Slugify $slugify
      * @return Response
      */
-    public function edit(Request $request, Program $program): Response
+    public function edit(Request $request, Program $program, Slugify $slugify): Response
     {
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $slug = $slugify->generate($program->getTitle());
+            $program->setSlug($slug);
+            $entityManager->flush();
 
             return $this->redirectToRoute('admin_program_index');
         }
@@ -96,18 +102,17 @@ class AdminProgramController extends AbstractController
     /**
      * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param Request $request
-     * @param Season $season
+     * @param Program $program
      * @return Response
      */
-    public function delete(Request $request, Season $season): Response
+    public function delete(Request $request, Program $program): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$season->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$program->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($season);
+            $entityManager->remove($program);
             $entityManager->flush();
         }
 
         return $this->redirectToRoute('admin_program_index');
     }
-
 }

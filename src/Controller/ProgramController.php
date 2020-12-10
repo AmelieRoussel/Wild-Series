@@ -21,6 +21,7 @@ class ProgramController extends AbstractController
      * Show all rows from Program's entity
      *
      * @Route("/", name="index")
+     * @param ProgramRepository $programRepository
      * @return Response A response instance
      */
     public function index(ProgramRepository $programRepository): Response
@@ -33,14 +34,15 @@ class ProgramController extends AbstractController
     /**
      * Getting a program by id
      *
-     * @Route("/{id<^[0-9]+$>}", methods={"GET"}, name="show")
+     * @Route("/{slug}", methods={"GET"}, name="show")
+     * @param Program $program
      * @return Response
      */
     public function show(Program $program): Response
     {
         if (!$program) {
             throw $this->createNotFoundException(
-                'No program found in promgram\'s table.'
+                'No program found in program\'s table.'
             );
         }
 
@@ -55,9 +57,11 @@ class ProgramController extends AbstractController
      * Getting a season by id
      *
      * @Route("/{program<^[0-9]+$>}/season/{season<^[0-9]+$>}", methods={"GET"}, name="season_show")
+     * @param Program $program
+     * @param Season $season
      * @return Response
      */
-    public function showSeason(Program $program, Season $season)
+    public function showSeason(Program $program, Season $season): Response
     {
         if (!$program) {
             throw $this->createNotFoundException(
@@ -78,6 +82,9 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{program<^[0-9]+$>}/seasons/{season<^[0-9]+$>}/episodes/{episode<^[0-9]+$>}", methods={"GET"}, name="episode_show")
+     * @param Program $program
+     * @param Season $season
+     * @param Episode $episode
      * @return Response
      */
     public function showEpisode(Program $program, Season $season, Episode $episode): Response
