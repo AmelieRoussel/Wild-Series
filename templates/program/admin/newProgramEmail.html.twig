@@ -1,0 +1,27 @@
+{% extends 'layoutEmail.html.twig' %}
+
+{% block title %}Nouvelle série{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;
+    padding-top: 24px;
+    margin: 48px;
+    font-family: 'Lato';
+    font-weight: 700;
+    color: #842930;">
+        Nouvelle série "{{ program.title }}" ajoutée
+    </h1>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Bonne nouvelle ! La série {{ program.title }} vient d'être ajoutée sur Wild Séries
+    </p>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Résumé : {{ program.summary }}
+    </p>
+    <a href="http://127.0.0.1:8000/programs/{{ program.slug }}" style="color: #842930;
+    font-family: 'Open Sans';
+    text-decoration: none;">
+        Retrouve-la sur notre site
+    </a>
+{% endblock %}

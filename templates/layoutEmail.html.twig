@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Wild Series{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="icon" href="{{ asset('build/logo1.png') }}">
-    {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
-    {% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-{% block header %}
-    {% include 'includes/_navbar.html.twig' %}
-{% endblock %}
 {% block body %}{% endblock %}
 {% block javascripts %}
     <script src="/build/app.js"></script>

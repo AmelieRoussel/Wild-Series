@@ -1,0 +1,34 @@
+{% extends 'layoutEmail.html.twig' %}
+
+{% block title %}Nouvel épisode{% endblock %}
+
+{% block body %}
+    <h1 style="text-align: center;
+    padding-top: 24px;
+    margin: 48px;
+    font-family: 'Lato';
+    font-weight: 700;
+    color: #842930;">Nouvel épisode "{{ episode.title }}" ajouté
+    </h1>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Bonne nouvelle ! L'épisode {{ episode.number }} - {{ episode.title }} vient d'être ajouté sur Wild Séries
+    </p>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Série : {{ episode.season.program.title }}
+    </p>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Saison : {{ episode.season.number }}
+    </p>
+    <p style="color: #0A1112;
+    font-family: 'Open Sans;">
+        Résumé : {{ episode.synopsis }}
+    </p>
+    <a href="http://127.0.0.1:8000/programs/{{ episode.season.program.slug }}/seasons/{{ episode.season.id }}/episodes/{{ episode.slug }}" style="color: #842930;
+    font-family: 'Open Sans';
+    text-decoration: none;">
+        Retrouve-la sur notre site
+    </a>
+{% endblock %}

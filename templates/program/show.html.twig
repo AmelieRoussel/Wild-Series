@@ -22,7 +22,7 @@
                     <div class="d-flex flex-column mt-5">
                         <p>Saisons disponibles :</p>
                         {% for season in seasons %}
-                            <a href="{{ path("program_season_show", { program: program.id , season: season.id }) }}">
+                            <a href="{{ path("program_season_show", { 'program_slug': program.slug , season: season.id }) }}">
                                 Saison {{ season.number }}
                             </a>
                         {% endfor %}
