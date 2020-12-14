@@ -16,11 +16,38 @@
             </div>
         </div>
 
+        <h3 class="text-center my-5">Commentaires</h3>
+        {% for comment in episode.comments %}
+            <div class="row mx-0 comment">
+                <div class="card col my-5 pt-3">
+                    <p>De : {{ comment.author.email }}</p>
+                    <p>{{ comment.comment }}</p>
+                    <p>{{ comment.rate }}/20</p>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-center text-light">Pas de commentaire</p>
+        {% endfor %}
+
+        {% if app.user %}
+            <div class="container mt-5 form">
+                <h3 class="text-center">Laisser un commentaire</h3>
+                <div class="col">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_widget(form) }}
+                    <div class="col button text-center">
+                        <button type="submit" class="btn">Envoyer</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        {% endif %}
+
         <div class="back my-4">
             <a href="{{ path("program_season_show", { 'program_slug': program.slug , season: season.id }) }}">
                 Retour
             </a>
         </div>
     </div>
-
 {% endblock %}

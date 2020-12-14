@@ -24,6 +24,18 @@
                     Acteurs
                 </a>
             </li>
+            <li class="nav-item ml-md-5 mt-4 mt-md-0">
+                {% if app.user %}
+                    {{ app.user.email }}
+                    <a class="nav-link title-light" href="{{ path('app_logout') }}">
+                        Se déconnecter
+                    </a>
+                {% else %}
+                    <a class="nav-link title-light" href="{{ path('app_login') }}">
+                        Se connecter
+                    </a>
+                {% endif %}
+            </li>
         </ul>
     </div>
 </nav>

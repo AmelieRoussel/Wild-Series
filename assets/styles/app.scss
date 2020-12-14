@@ -196,6 +196,11 @@ img.poster {
     width: 100%;
   }
 
+  textarea {
+    border: none;
+    border-radius: 4px;
+  }
+
   li {
     color: $third_color;
     list-style: none;
@@ -218,5 +223,13 @@ img.poster {
     .btn {
       width: 100%;
     }
+  }
+}
+
+.comment {
+  margin: -$spacing6 0 -$spacing6 0;
+  .card {
+    background-color: $light;
+    color: $dark;
   }
 }
