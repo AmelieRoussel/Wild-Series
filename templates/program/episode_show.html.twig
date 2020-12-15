@@ -23,13 +23,21 @@
                     <p>De : {{ comment.author.email }}</p>
                     <p>{{ comment.comment }}</p>
                     <p>{{ comment.rate }}/20</p>
+                    {% if is_granted("ROLE_ADMIN") or app.user == comment.author %}
+                        <div class="d-flex justify-content-center">
+                            {{ include('comment/_delete_form.html.twig') }}
+                            {% if app.user == comment.author %}
+                                <a class="btn mt-0 mx-3 mb-3" href="">Modifier</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         {% else %}
             <p class="text-center text-light">Pas de commentaire</p>
         {% endfor %}
 
-        {% if app.user %}
+        {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_CONTRIBUTOR") %}
             <div class="container mt-5 form">
                 <h3 class="text-center">Laisser un commentaire</h3>
                 <div class="col">

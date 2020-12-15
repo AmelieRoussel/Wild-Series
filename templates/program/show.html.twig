@@ -31,6 +31,12 @@
             </div>
         </div>
 
+        {% if is_granted("ROLE_ADMIN") %}
+            <div class="back my-4">
+                <a class="btn" href="{{ path('admin_program_edit', { 'slug': program.slug} ) }}">Éditer</a>
+            </div>
+        {% endif %}
+
         <div class="back my-4">
             <a href="{{ path('program_index') }}">
                 Retour à la liste des programmes
