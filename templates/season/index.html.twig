@@ -6,7 +6,7 @@
     <h1>Liste des saisons</h1>
     <div class="container show">
         <div class="my-4">
-            <a class="btn" href="{{ path('season_new') }}">Ajouter une saison</a>
+            <a class="btn" href="{{ path('admin_season_new') }}">Ajouter une saison</a>
         </div>
 
         <table class="table">
@@ -27,7 +27,7 @@
                     <td>{{ season.year }}</td>
                     <td>{{ season.description }}</td>
                     <td>
-                        <a class="btn" href="{{ path('season_edit', {'id': season.id}) }}">Modifier</a>
+                        <a class="btn" href="{{ path('admin_season_edit', {'id': season.id}) }}">Modifier</a>
                         {{ include('season/_delete_form.html.twig') }}
                     </td>
                 </tr>

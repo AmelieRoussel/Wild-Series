@@ -20,22 +20,22 @@ class UserFixtures extends Fixture
     {
         // Création d’un utilisateur de type “contributeur” (= auteur)
         $contributor = new User();
-        $contributor->setEmail('subscriber@monsite.com');
-        $contributor->setRoles(['ROLE_CONTRIBUTOR']);
+        $contributor->setEmail('user@wildseries.com');
+        $contributor->setRoles(['ROLE_USER']);
         $contributor->setPassword($this->passwordEncoder->encodePassword(
             $contributor,
-            'subscriberpassword'
+            'user'
         ));
 
         $manager->persist($contributor);
 
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();
-        $admin->setEmail('admin@monsite.com');
+        $admin->setEmail('admin@wildseries.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
-            'adminpassword'
+            'admin'
         ));
 
         $manager->persist($admin);

@@ -27,10 +27,10 @@
         </table>
 
         <div class="back d-flex justify-content-center my-4">
-            <a class="btn mr-5" href="{{ path('season_edit', {'id': season.id}) }}">Modifier</a>
+            <a class="btn mr-5" href="{{ path('admin_season_edit', {'id': season.id}) }}">Modifier</a>
 
             {{ include('season/_delete_form.html.twig') }}
         </div>
-        <a href="{{ path('season_index') }}">Retour</a>
+        <a href="{{ path('admin_season_index') }}">Retour</a>
     </div>
 {% endblock %}

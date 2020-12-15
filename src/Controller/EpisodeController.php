@@ -15,12 +15,12 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/episode")
+ * @Route("/admin/episodes", name="admin_episode_")
  */
 class EpisodeController extends AbstractController
 {
     /**
-     * @Route("/", name="episode_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      * @param EpisodeRepository $episodeRepository
      * @return Response
      */
@@ -32,7 +32,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="episode_new", methods={"GET","POST"})
+     * @Route("/new", name="new", methods={"GET","POST"})
      * @param Request $request
      * @param Slugify $slugify
      * @param MailerInterface $mailer
@@ -68,7 +68,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="episode_show", methods={"GET"})
+     * @Route("/{slug}", name="show", methods={"GET"})
      * @param Episode $episode
      * @return Response
      */
@@ -80,7 +80,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="episode_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Episode $episode
      * @param Slugify $slugify
@@ -107,7 +107,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
+     * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param Request $request
      * @param Episode $episode
      * @return Response
