@@ -120,6 +120,9 @@ class ProgramController extends AbstractController
             $comment->setAuthor($this->getUser());
             $entityManager->persist($comment);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Le commentaire a bien été ajouté');
+
             return $this->redirectToRoute('program_episode_show', [
                 'program_slug' => $program->getSlug(),
                 'season' => $season->getId(),

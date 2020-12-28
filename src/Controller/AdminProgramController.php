@@ -53,12 +53,16 @@ class AdminProgramController extends AbstractController
             $program->setOwner($this->getUser());
             $entityManager->persist($program);
             $entityManager->flush();
+
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
                 ->to($this->getParameter('mailer_to'))
                 ->subject('Une nouvelle série vient d\'être publiée !')
                 ->html($this->renderView('program/admin/newProgramEmail.html.twig', ['program' => $program]));
             $mailer->send($email);
+
+            $this->addFlash('success', 'La nouvelle série a bien été ajoutée');
+
             return $this->redirectToRoute('admin_program_index');
         }
 
@@ -98,7 +102,7 @@ class AdminProgramController extends AbstractController
     {
         if ($this->getUser() !== $program->getOwner()) {
             throw $this->createAccessDeniedException(
-                'Only the owner can edit the program!'
+                'Only the owner or the admin can edit the program!'
             );
         }
 
@@ -110,6 +114,8 @@ class AdminProgramController extends AbstractController
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
             $entityManager->flush();
+
+            $this->addFlash('success', 'La série a bien été modifiée');
 
             return $this->redirectToRoute('admin_program_index');
         }
@@ -132,6 +138,9 @@ class AdminProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'La série a bien été supprimée');
+
         }
 
         return $this->redirectToRoute('admin_program_index');

@@ -28,6 +28,9 @@ class CommentController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($comment);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'Le commentaire a bien été supprimé');
+
         }
 
         return $this->redirectToRoute('program_episode_show', [
