@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Form\ProgramType;
+use App\Form\SearchProgramFormType;
 use App\Repository\CommentRepository;
 use App\Repository\ProgramRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -26,12 +27,24 @@ class ProgramController extends AbstractController
      *
      * @Route("/", name="index")
      * @param ProgramRepository $programRepository
+     * @param Request $request
      * @return Response A response instance
      */
-    public function index(ProgramRepository $programRepository): Response
+    public function index(ProgramRepository $programRepository, Request $request): Response
     {
+        $form = $this->createForm(SearchProgramFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['Rechercher'];
+            $programs = $programRepository->findLikeName($search);
+        } else {
+            $programs = $programRepository->findAll();
+        }
+
         return $this->render('program/index.html.twig', [
-            'programs' => $programRepository->findAll()
+            'programs' => $programs,
+            'form' => $form->createView(),
         ]);
     }
 
