@@ -2,7 +2,15 @@
 {% block title %}{{ parent() }} | {{ program.title }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">{{ program.title }}</h1>
+    <h1 class="text-center">{{ program.title }}
+        {% if app.user %}
+            <button id="watchlist" >
+                <i id="watchlistIcon" class="watchlist {{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart"
+                   data-href="{{ path("program_watchlist", { id: program.id}) }}"
+                ></i>
+            </button>
+        {% endif %}
+    </h1>
     <div class="container program-show">
         <div class="row mx-0">
             <div class="card flex-md-row mb-3">
@@ -10,6 +18,7 @@
                     <img src="{{ program.poster }}" alt="{{ program.title }} poster">
                 </div>
                 <div class="card-body d-flex flex-column">
+
                     <p>{{ program.summary }}</p>
                     <p>Catégorie : {{ program.category.name }}</p>
                     <p>Acteurs :
@@ -31,7 +40,7 @@
             </div>
         </div>
 
-        {% if is_granted("ROLE_ADMIN") %}
+        {% if is_granted("ROLE_ADMIN") or app.user == program.owner %}
             <div class="back my-4">
                 <a class="btn" href="{{ path('admin_program_edit', { 'slug': program.slug} ) }}">Éditer</a>
             </div>
@@ -44,4 +53,8 @@
         </div>
     </div>
 
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('watchlist') }}
 {% endblock %}

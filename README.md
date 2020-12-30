@@ -42,3 +42,6 @@ https://www.loom.com/share/b1f8c18bed2d451f832d14b9323197c7
 
 Quête 23 :
 https://www.loom.com/share/1dee787fc87140ceac05364418de7279
+
+Quête 24 :
+https://www.loom.com/share/ab4baecfb2cb4298a1adfe945ed9a191

@@ -8,6 +8,7 @@ use App\Form\ProgramType;
 use App\Form\SearchProgramFormType;
 use App\Repository\CommentRepository;
 use App\Repository\ProgramRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -135,6 +136,26 @@ class ProgramController extends AbstractController
             'season' => $season,
             'episode' => $episode,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/watchlist", methods={"GET","POST"}, name="watchlist")
+     * @param Program $program
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function addToWatchList(Program $program, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->getUser()->getWatchlist()->contains($program)) {
+            $this->getUser()->removeWatchlist($program);
+        } else {
+            $this->getUser()->addWatchlist($program);
+        }
+        $entityManager->flush();
+
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($program)
         ]);
     }
 }
