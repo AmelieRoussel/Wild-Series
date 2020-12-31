@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md fixed-top">
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="{{ path('app_index') }}">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDQyMi43MjYgNDIyLjcyNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8Zz4KCQkJPHBhdGggZD0iTTM0OC44LDE4NS43MDNjLTAuMDAxLTk2LjMxOC03OC4wODMtMTc0LjM5OS0xNzQuNDAxLTE3NC4zOTlDNzguMDgsMTEuMzA1LTAuMDAxLDg5LjM4NywwLDE4NS43MDUgICAgIGMwLDQ2LjI1NCwxOC4zNzUsOTAuNjEzLDUxLjA4MSwxMjMuMzE5YzMyLjY3MiwzMi43NTksNzcuMDU0LDUxLjE0MiwxMjMuMzIsNTEuMDh2MCAgICAgQzI3MC43MiwzNjAuMTAzLDM0OC44MDEsMjgyLjAyMSwzNDguOCwxODUuNzAzeiBNMjQwLjM2MSwxMDkuNDY0YzE1Ljc4NC05LjE1NiwzNi4wMDItMy43ODMsNDUuMTU4LDEyLjAwMSAgICAgYzkuMTU2LDE1Ljc4NCwzLjc4MywzNi4wMDItMTIuMDAxLDQ1LjE1OGMtMTUuNzgzLDkuMTU2LTM2LDMuNzg0LTQ1LjE1Ny0xMS45OTkgICAgIEMyMTkuMjI3LDEzOC44MzcsMjI0LjU5NSwxMTguNjM1LDI0MC4zNjEsMTA5LjQ2NHogTTEwOC41NTgsMjYxLjg2M2MtMTUuNzgzLDkuMTU2LTM2LDMuNzg0LTQ1LjE1Ny0xMS45OTkgICAgIGMtOS4xNTctMTUuNzgzLTMuNzg1LTM2LjAwMiwxMS45OTgtNDUuMTU5YzAuMDAxLDAsMC4wMDEtMC4wMDEsMC4wMDItMC4wMDFjMTUuNzg0LTkuMTU2LDM2LjAwMi0zLjc4Myw0NS4xNTgsMTIuMDAxICAgICBDMTI5LjcxNSwyMzIuNDg5LDEyNC4zNDIsMjUyLjcwNywxMDguNTU4LDI2MS44NjN6IE0xMjAuNTU4LDE1NC43MDVjLTkuMTU3LDE1Ljc4My0yOS4zNzQsMjEuMTU1LTQ1LjE1NywxMS45OTkgICAgIGMtMTUuNzY2LTkuMTcxLTIxLjEzNC0yOS4zNzMtMTItNDUuMTZjOS4xNTctMTUuNzgzLDI5LjM3NS0yMS4xNTUsNDUuMTU5LTExLjk5OCAgICAgQzEyNC4zNDQsMTE4LjcwMywxMjkuNzE1LDEzOC45MjEsMTIwLjU1OCwxNTQuNzA1eiBNMTc0LjQwMSwzMTQuMDI0Yy0xOC4yNDcsMC0zMy4wNC0xNC43OTItMzMuMDQtMzMuMDQgICAgIHMxNC43OTItMzMuMDQsMzMuMDQtMzMuMDRzMzMuMDQsMTQuNzkyLDMzLjA0LDMzLjA0UzE5Mi42NDksMzE0LjAyNCwxNzQuNDAxLDMxNC4wMjR6IE0xNDkuNzIxLDE4NS43MDQgICAgIGMwLTEzLjYzLDExLjA1LTI0LjY4LDI0LjY4LTI0LjY4czI0LjY4LDExLjA1LDI0LjY4LDI0LjY4cy0xMS4wNSwyNC42OC0yNC42OCwyNC42OFMxNDkuNzIxLDE5OS4zMzQsMTQ5LjcyMSwxODUuNzA0eiAgICAgIE0xNzQuNDAxLDEyMy40NjRjLTE4LjI0NywwLTMzLjA0LTE0Ljc5My0zMy4wNC0zMy4wNGMwLTE4LjI0NywxNC43OTItMzMuMDQsMzMuMDQtMzMuMDRzMzMuMDQsMTQuNzkyLDMzLjA0LDMzLjA0ICAgICBTMTkyLjY0OSwxMjMuNDY0LDE3NC40MDEsMTIzLjQ2NHogTTI4NS41MTgsMjQ5Ljk4NWMtOS4xNTcsMTUuNzgzLTI5LjM3NCwyMS4xNTUtNDUuMTU3LDExLjk5OSAgICAgYy0xNS43OTUtOS4xNDQtMjEuMi0yOS4zNTItMTIuMDgtNDUuMTZoMC4wOGM5LjE1Ny0xNS43ODQsMjkuMzc1LTIxLjE1NSw0NS4xNTktMTEuOTk4ICAgICBDMjg5LjMwNCwyMTMuOTgzLDI5NC42NzUsMjM0LjIwMSwyODUuNTE4LDI0OS45ODV6IiBmaWxsPSIjMWIyZjMzIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+CgkJCTxwYXRoIGQ9Ik00MTguNzYxLDM1NS4zMDRjLTMuMjEyLTYuMzU1LTcuNDEtMTIuMTYtMTIuNDQtMTcuMmMtNS44MjctNS45MTMtMTIuNTgzLTEwLjgzMi0yMC0xNC41NiAgICAgYy0xOC4yOC05LjE2LTQyLjU2LTEyLTcwLjY0LDEuOTJjLTguMTg2LDMuOTg1LTE2LjY4LDcuMzAzLTI1LjQsOS45MmMtMjMuNjgzLDE4LjM4My01MS40MTEsMzAuODQ4LTgwLjg4LDM2LjM2ICAgICBjMjYuNiw0LDU1LjcyLDEuMTIsODEuMjQtMS4zMmMxMi44OTItMS41MjQsMjUuODU4LTIuMzM5LDM4Ljg0LTIuNDRjMjguNTYsMC43MiwyNywzMC45NiwyNi43MiwzNC4zMiAgICAgYy0wLjYxNyw0LjM3NSwyLjQyOSw4LjQyMiw2LjgwNCw5LjAzOWMxLjgsMC4yNTQsMy42MzMtMC4xMTMsNS4xOTYtMS4wMzlsNDkuNzItMjguOGMxLjM2LTAuNzg1LDIuNDU5LTEuOTU0LDMuMTYtMy4zNiAgICAgQzQyMy45MjEsMzcyLjQyNCw0MjMuMDQxLDM2NC4wMjQsNDE4Ljc2MSwzNTUuMzA0eiIgZmlsbD0iIzFiMmYzMyIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgc3R5bGU9IiIgY2xhc3M9IiI+PC9wYXRoPgoJCTwvZz4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
              alt="Home" class="logo"/>
         Wild Séries
@@ -12,18 +12,22 @@
         <ul class="navbar-nav w-100 justify-content-end">
             <li class="nav-item mx-md-4">
                 <a class="nav-link title-light" href="{{ path('program_index') }}">
-                    Séries
+                    {{ 'program.program'|trans }}
                 </a>
             </li>
             <li class="nav-item mx-md-4">
                 <a class="nav-link title-light" href="{{ path('category_index') }}">
-                    Catégories
+                    {{ 'category.category'|trans }}
                 </a>
             </li>
             <li class="nav-item mx-md-4">
                 <a class="nav-link title-light" href="{{ path('actor_index') }}">
-                    Acteurs
+                    {{ 'actor.actor'|trans }}
                 </a>
+            </li>
+            <li class="nav-item ml-md-5 mt-4 mt-md-0 d-flex">
+                <a class="nav-link title-light" href="{{ path('app_index', {'_locale':'fr'}) }}">Fr</a>
+                <a class="nav-link title-light" href="{{ path('app_index', {'_locale':'en'}) }}">En</a>
             </li>
             <li class="nav-item ml-md-5 mt-4 mt-md-0">
                 {% if app.user %}
@@ -31,11 +35,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link title-light" href="{{ path('app_logout') }}">
-                    Se déconnecter
+                    {{ 'account.logout'|trans }}
                 </a>
                 {% else %}
                     <a class="nav-link title-light" href="{{ path('app_login') }}">
-                        Se connecter
+                        {{ 'account.login'|trans }}
                     </a>
                 {% endif %}
             </li>

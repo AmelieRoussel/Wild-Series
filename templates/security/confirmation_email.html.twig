@@ -1,8 +1,8 @@
-<h1>Merci de confirmer votre adresse email</h1>
+<h1>{{ 'email.please-confirm-email'|trans }}</h1>
 
 <p>
-    Confirmez votre adresse email en suivant le lien suivant : <br><br>
-    <a href="{{ signedUrl|raw }}">Confirmer mon adresse</a>.
+    {{ 'email.confirm-email-link'|trans }}: <br><br>
+    <a href="{{ signedUrl|raw }}">{{ 'email.confirm-email'|trans }}</a>.
     Ce lien expire dans {{ expiresAt|date('g') }} heure(s).
 </p>
 

@@ -20,17 +20,17 @@
                             </a>
                             <p>{{  program.summary }}</p>
                         </div>
-                        <p>Catégorie : {{ program.category.name }}</p>
+                        <p>{{ 'category.category'|trans }} : {{ program.category.name }}</p>
                     </div>
                 </div>
             {% else %}
-                Aucune série trouvée.
+                {{ 'no-series'|trans }}
             {% endfor %}
         </div>
 
         <div class="back my-4">
             <a href="{{ path('actor_index') }}">
-                Retour à la liste des acteurs
+                {{ 'back'|trans }}
             </a>
         </div>
     </div>

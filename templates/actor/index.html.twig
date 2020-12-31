@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Les acteurs{% endblock %}
+{% block title %}{{ parent() }} | {{ 'actor.actor'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Acteurs</h1>
+    <h1 class="text-center">{{ 'actor.actor'|trans }}</h1>
     <div class="container actor-index">
         <div class="row mx-0 ml-md-3 justify-content-center justify-content-md-start">
             {% for actor in actors %}
@@ -11,18 +11,18 @@
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h2 class="card-title">{{ actor.name }}</h2>
                         <a href="{{ path("actor_show", { slug: actor.slug }) }}" class="card-link">
-                            Voir ses séries
+                            {{ 'program.show'|trans }}
                         </a>
                     </div>
                 </div>
             {% else %}
-                Aucun acteur trouvé.
+                {{ 'no-result'|trans }}
             {% endfor %}
         </div>
 
         <div class="back my-4">
             <a href="{{ path('app_index') }}">
-                Retour à l'accueil
+                {{ 'back'|trans }}
             </a>
         </div>
     </div>

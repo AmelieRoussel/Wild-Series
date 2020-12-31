@@ -2,7 +2,7 @@
 {% block title %}{{ parent() }} | {{ program.title }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">{{ program.title }} - Saison {{ season.number }}</h1>
+    <h1 class="text-center">{{ program.title }} - {{ 'season.season'|trans }} {{ season.number }}</h1>
     <div class="container program-show">
         <div class="row mx-0">
             <div class="card flex-md-row mb-3">
@@ -10,13 +10,13 @@
                     <img src="{{ program.poster }}" alt="{{ program.title }} poster">
                 </div>
                 <div class="card-body d-flex flex-column">
-                    <h2 class="card-title">Épisode {{ episode.number }} : {{ episode.title }}</h2>
+                    <h2 class="card-title">{{ 'episode.episode'|trans }} {{ episode.number }} : {{ episode.title }}</h2>
                     <p>{{ season.description }}</p>
                 </div>
             </div>
         </div>
 
-        <h3 class="text-center my-5">Commentaires</h3>
+        <h3 class="text-center my-5">{{ 'comment.comment'|trans }}</h3>
         {% for comment in episode.comments %}
             <div class="row mx-0 comment">
                 <div class="card col my-5 pt-3">
@@ -27,25 +27,25 @@
                         <div class="d-flex justify-content-center">
                             {{ include('comment/_delete_form.html.twig') }}
                             {% if app.user == comment.author %}
-                                <a class="btn mt-0 mx-3 mb-3" href="">Modifier</a>
+                                <a class="btn mt-0 mx-3 mb-3" href="">{{ 'update'|trans }}</a>
                             {% endif %}
                         </div>
                     {% endif %}
                 </div>
             </div>
         {% else %}
-            <p class="text-center text-light">Pas de commentaire</p>
+            <p class="text-center text-light">{{ 'comment.no-comment'|trans }}</p>
         {% endfor %}
 
         {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_CONTRIBUTOR") %}
             <div class="container mt-5 form">
-                <h3 class="text-center">Laisser un commentaire</h3>
+                <h3 class="text-center">{{ 'comment.add'|trans }}</h3>
                 <div class="col">
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
                     {{ form_widget(form) }}
                     <div class="col button text-center">
-                        <button type="submit" class="btn">Envoyer</button>
+                        <button type="submit" class="btn">{{ 'send'|trans }}</button>
                     </div>
                     {{ form_end(form) }}
                 </div>
@@ -54,7 +54,7 @@
 
         <div class="back my-4">
             <a href="{{ path("program_season_show", { 'program_slug': program.slug , season: season.id }) }}">
-                Retour
+                {{ 'back'|trans }}
             </a>
         </div>
     </div>

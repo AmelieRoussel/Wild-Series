@@ -45,3 +45,6 @@ https://www.loom.com/share/1dee787fc87140ceac05364418de7279
 
 Quête 24 :
 https://www.loom.com/share/ab4baecfb2cb4298a1adfe945ed9a191
+
+Quête 25 :
+https://www.loom.com/share/524dc75760c0436f81f7ca8c97f536b2

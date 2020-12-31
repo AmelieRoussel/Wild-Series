@@ -8,7 +8,7 @@
                 Séries</h1>
         </header>
         <main>
-            <h2 class="text-center my-5">Les dernières séries</h2>
+            <h2 class="text-center my-5">{{ 'program.last'|trans }}</h2>
             <div class="container-fluid program-index">
                 <div class="row mx-0 ml-md-5 pl-md-5 justify-content-center justify-content-md-start">
                     {% for program in programs %}
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     {% else %}
-                        Aucune série trouvée.
+                        {{ 'no-series'|trans }}
                     {% endfor %}
                 </div>
             </div>

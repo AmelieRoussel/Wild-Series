@@ -11,19 +11,19 @@
                 </div>
                 <div class="card-body d-flex flex-column">
                     <p>{{ program.summary }}</p>
-                    <p>Catégorie : {{ program.category.name }}</p>
-                    <p>Acteurs :
+                    <p>{{ 'category.category'|trans }} : {{ program.category.name }}</p>
+                    <p>{{ 'actor.actor'|trans }} :
                         {% for actor in program.actors %}
                             <a href="{{ path("actor_show", { slug: actor.slug }) }}">{{ actor.name }},</a>
                         {% else %}
-                            Aucun acteur pour cette série
+                            {{ 'actor.no-actor'|trans }}
                         {% endfor %}
                     </p>
                     <div class="d-flex flex-column mt-5">
-                        <p>Saisons disponibles :</p>
+                        <p>{{ 'season.available'|trans }}</p>
                         {% for season in seasons %}
                             <a href="{{ path("program_season_show", { program_slug: program.slug , season: season.id }) }}">
-                                Saison {{ season.number }}
+                                {{ 'season.season'|trans }} {{ season.number }}
                             </a>
                         {% endfor %}
                     </div>
@@ -32,14 +32,14 @@
         </div>
 
         <div class="back d-flex justify-content-center my-4">
-            <a class="btn mr-5" href="{{ path('admin_program_edit', {'slug': program.slug}) }}">Modifier</a>
+            <a class="btn mr-5" href="{{ path('admin_program_edit', {'slug': program.slug}) }}">{{ 'update'|trans }}</a>
 
             {{ include('program/admin/_delete_form.html.twig') }}
         </div>
 
         <div class="back my-4">
             <a href="{{ path('admin_program_index') }}">
-                Retour
+                {{ 'back'|trans }}
             </a>
         </div>
     </div>

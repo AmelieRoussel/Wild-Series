@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Ajouter un épisode{% endblock %}
+{% block title %}{{ parent() }} | {{ 'episode.add'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center my-4">Ajouter un nouvel épisode</h1>
+    <h1 class="text-center my-4">{{ 'episode.add'|trans }}</h1>
     <div class="container form">
         {{ include('episode/_form.html.twig') }}
 
         <div class="back my-4">
-            <a href="{{ path('admin_episode_index') }}">Retour</a>
+            <a href="{{ path('admin_episode_index') }}">{{ 'back'|trans }}</a>
         </div>
     </div>
 {% endblock %}

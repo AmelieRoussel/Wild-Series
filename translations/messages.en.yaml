@@ -1,0 +1,46 @@
+category.category: Categories
+no-series: No serie found
+back: Back
+actor.actor: Actors
+program.show: See programs
+no-result: No result found
+email.please-confirm-email: Please confirm your email address
+email.confirm-email-link: Confirm your email address following this link
+email.confirm-email: Confirm your email adress
+account.register: Register
+account.logout: Logout
+account.login: Login
+account.email: Email
+account.password: Password
+account.not-register-yet: Not registered?
+season.season: Seasons
+number: Number
+year: Year
+description: Description
+update: Update
+delete: Delete
+season.index: Season index
+season.add: Add a new season
+action: Action
+program.program: Programs
+episode.episode: Episodes
+title: Title
+synopsis: Synopsis
+episode.update: Update an episode
+episode.index: Episode index
+episode.add: Add a new episode
+show: Show
+season.available: Seasons available
+actor.no-actor: No actor found
+program.update: Update a program
+name: Name
+program.add: Add a new program
+comment.comment: Comment
+comment.no-comment: No comment to display
+comment.add: Add a comment
+send: Send
+program: Programs
+program.all: All programs
+category.add: Add a new category
+add: Add
+program.last: Lastest programs

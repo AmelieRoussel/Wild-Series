@@ -100,12 +100,6 @@ class AdminProgramController extends AbstractController
      */
     public function edit(Request $request, Program $program, Slugify $slugify): Response
     {
-        if ($this->getUser() !== $program->getOwner()) {
-            throw $this->createAccessDeniedException(
-                'Only the owner or the admin can edit the program!'
-            );
-        }
-
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
 

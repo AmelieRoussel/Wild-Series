@@ -1,16 +1,16 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{ parent() }} | Ajouter une catégorie{% endblock %}
+{% block title %}{{ parent() }} | {{ 'category.add'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center my-4">Ajouter une nouvelle catégorie</h1>
+    <h1 class="text-center my-4">{{ 'category.add'|trans }}</h1>
     <div class="container new">
         <div class="col my-5">
             {{ form_start(form) }}
             {{ form_errors(form) }}
             {{ form_widget(form) }}
             <div class="col button text-center">
-                <button type="submit" class="btn">Ajouter</button>
+                <button type="submit" class="btn">{{ 'add'|trans }}</button>
             </div>
             {{ form_end(form) }}
         </div>

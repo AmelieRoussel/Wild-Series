@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Saisons{% endblock %}
+{% block title %}{{ 'season.season'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Liste des saisons</h1>
+    <h1>{{ 'season.index'|trans }}/h1>
     <div class="container show">
         <div class="my-4">
-            <a class="btn" href="{{ path('admin_season_new') }}">Ajouter une saison</a>
+            <a class="btn" href="{{ path('admin_season_new') }}">{{ 'season.add'|trans }}</a>
         </div>
 
         <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
-                <th>N°</th>
-                <th>Année</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th>{{ 'number'|trans }}</th>
+                <th>{{ 'year'|trans }}</th>
+                <th>{{ 'description'|trans }}</th>
+                <th>{{ 'action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -27,13 +27,13 @@
                     <td>{{ season.year }}</td>
                     <td>{{ season.description }}</td>
                     <td>
-                        <a class="btn" href="{{ path('admin_season_edit', {'id': season.id}) }}">Modifier</a>
+                        <a class="btn" href="{{ path('admin_season_edit', {'id': season.id}) }}">{{ 'update'|trans }}</a>
                         {{ include('season/_delete_form.html.twig') }}
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">no records found</td>
+                    <td colspan="5">{{ 'no-result'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>

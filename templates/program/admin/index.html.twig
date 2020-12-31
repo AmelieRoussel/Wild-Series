@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Séries{% endblock %}
+{% block title %}{{ 'program.program'|trans }}{% endblock %}
 
 {% block body %}
     <h1>Liste des séries</h1>
@@ -13,10 +13,10 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Catégorie</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th>{{ 'name'|trans }}</th>
+                <th>{{ 'category.category'|trans }}</th>
+                <th>{{ 'description'|trans }}</th>
+                <th>{{ 'action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -27,13 +27,13 @@
                     <td>{{ program.category.name }}</td>
                     <td>{{ program.summary }}</td>
                     <td>
-                        <a class="btn" href="{{ path('admin_program_show', {'slug': program.slug}) }}">Afficher</a>
-                        <a class="btn" href="{{ path('admin_program_edit', {'slug': program.slug}) }}">Modifier</a>
+                        <a class="btn" href="{{ path('admin_program_show', {'slug': program.slug}) }}">{{ 'show'|trans }}</a>
+                        <a class="btn" href="{{ path('admin_program_edit', {'slug': program.slug}) }}">{{ 'update'|trans }}</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">no records found</td>
+                    <td colspan="5">{{ 'no-result'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>

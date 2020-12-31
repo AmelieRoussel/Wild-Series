@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} | Modifier une série{% endblock %}
+{% block title %}{{ parent() }} | {{ 'program.update'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center my-4">Modifier la série</h1>
+    <h1 class="text-center my-4">{{ 'program.update'|trans }}</h1>
     <div class="container form">
         {{ include('program/admin/_form.html.twig', {'button_label': 'Modifier'}) }}
 
@@ -12,7 +12,7 @@
         </div>
 
         <div class="back my-4">
-            <a href="{{ path('admin_program_index') }}">Retour</a>
+            <a href="{{ path('admin_program_index') }}">{{ 'back'|trans }}</a>
         </div>
 
     </div>

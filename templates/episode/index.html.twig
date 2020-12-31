@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Épisodes{% endblock %}
+{% block title %}{{ 'episode.episode'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Liste des épisodes</h1>
+    <h1>{{ 'episode.index'|trans }}</h1>
     <div class="container show">
         <div class="my-4">
-            <a class="btn" href="{{ path('admin_episode_new') }}">Ajouter un épisode</a>
+            <a class="btn" href="{{ path('admin_episode_new') }}">{{ 'episode.add'|trans }}</a>
         </div>
 
         <table class="table">
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Number</th>
-                <th>Synopsis</th>
-                <th>actions</th>
+                <th>{{ 'title'|trans }}</th>
+                <th>{{ 'number'|trans }}</th>
+                <th>{{ 'synopsis'|trans }}</th>
+                <th>{{ 'action'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -27,13 +27,13 @@
                     <td>{{ episode.number }}</td>
                     <td>{{ episode.synopsis }}</td>
                     <td>
-                        <a href="{{ path('admin_episode_show', {'slug': episode.slug}) }}">Afficher</a>
-                        <a href="{{ path('admin_episode_edit', {'slug': episode.slug}) }}">Modifier</a>
+                        <a href="{{ path('admin_episode_show', {'slug': episode.slug}) }}">{{ 'show'|trans }}</a>
+                        <a href="{{ path('admin_episode_edit', {'slug': episode.slug}) }}">{{ 'update'|trans }}</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">no records found</td>
+                    <td colspan="5">{{ 'no-result'|trans }}/td>
                 </tr>
             {% endfor %}
             </tbody>
