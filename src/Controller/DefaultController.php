@@ -2,6 +2,7 @@
 // src/Controller/ProgramController.php
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use App\Repository\ProgramRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,17 @@ class DefaultController extends AbstractController
         return $this->render('index.html.twig', [
             'website' => 'Wild Séries',
             'programs' => $programRepository->findBy([], ['id' => 'DESC'], 4),
+        ]);
+    }
+
+    /**
+     * @param CategoryRepository $categoryRepository
+     * @return Response
+     */
+    public function navbarTop(CategoryRepository $categoryRepository): Response
+    {
+        return $this->render('includes/navbartop.html.twig', [
+            'categories' => $categoryRepository->findBy([], ['name' => 'ASC'])
         ]);
     }
 }

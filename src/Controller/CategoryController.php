@@ -85,8 +85,7 @@ class CategoryController extends AbstractController
             ->getRepository(Program::class)
             ->findBy(
                 ['category' => $category],
-                ['id' => 'DESC'],
-                3);
+                ['id' => 'DESC']);
         if (!$programs) {
             throw $this->createNotFoundException(
                 'No program found in program\'s table.'

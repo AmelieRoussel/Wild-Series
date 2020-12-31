@@ -48,3 +48,6 @@ https://www.loom.com/share/ab4baecfb2cb4298a1adfe945ed9a191
 
 Quête 25 :
 https://www.loom.com/share/524dc75760c0436f81f7ca8c97f536b2
+
+Quête 26 :
+https://www.loom.com/share/530524759c0a46348597369293e57df5

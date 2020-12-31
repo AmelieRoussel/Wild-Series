@@ -92,6 +92,24 @@ a {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 28 28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(27, 47, 51)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.dropdown-toggle::after {
+  vertical-align: 0;
+}
+
+.dropdown-menu {
+background-color: $second-color;
+border:none;
+padding-top: $spacing2;
+
+  .dropdown-item {
+    padding-bottom: $spacing2;
+
+    &:hover {
+      background-color: $light;
+    }
+  }
+}
+
 img.poster {
   max-height: $height_img;
 }

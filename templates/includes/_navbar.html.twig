@@ -15,10 +15,14 @@
                     {{ 'program.program'|trans }}
                 </a>
             </li>
-            <li class="nav-item mx-md-4">
-                <a class="nav-link title-light" href="{{ path('category_index') }}">
+            <li class="nav-item dropdown mx-md-4">
+                <a class="nav-link dropdown-toggle title-light" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ 'category.category'|trans }}
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{ render(controller('App\\Controller\\DefaultController::navbarTop')) }}
+                </div>
             </li>
             <li class="nav-item mx-md-4">
                 <a class="nav-link title-light" href="{{ path('actor_index') }}">
