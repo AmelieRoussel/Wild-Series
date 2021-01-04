@@ -3,10 +3,10 @@
 {% block title %}{{ 'program.program'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Liste des séries</h1>
+    <h1>{{ 'program.index'|trans }}</h1>
     <div class="container show">
         <div class="my-4">
-            <a class="btn" href="{{ path('admin_program_new') }}">Ajouter une série</a>
+            <a class="btn" href="{{ path('admin_program_new') }}">{{ 'program.add'|trans }}</a>
         </div>
 
         <table class="table">

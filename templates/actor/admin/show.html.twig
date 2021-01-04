@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | {{ actor.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ 'actor.actor'|trans }}</h1>
+
+    <div class="container show">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ actor.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'name'|trans }}</th>
+                <td>{{ actor.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'picture'|trans }}</th>
+                <td><img src="{{ asset('uploads/' ~ actor.picture) }}" alt="{{ actor.picture }} poster"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back d-flex justify-content-center my-4">
+        <a class="btn" href="{{ path('admin_actor_edit', {'slug': actor.slug}) }}">{{ 'update'|trans }}</a>
+
+        {{ include('actor/admin/_delete_form.html.twig') }}
+    </div>
+
+    <div class="back my-4">
+        <a href="{{ path('admin_actor_index') }}">
+            {{ 'back'|trans }}
+        </a>
+    </div>
+{% endblock %}

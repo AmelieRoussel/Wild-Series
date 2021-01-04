@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'actor.actor'|trans }}{% endblock %}
+
+{% block body %}
+<h1>{{ 'actor.index'|trans }}</h1>
+
+<div class="container show">
+    <div class="my-4">
+        <a class="btn" href="{{ path('admin_actor_new') }}">{{ 'actor.add'|trans }}</a>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>{{ 'name'|trans }}</th>
+            <th>{{ 'action'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for actor in actors %}
+            <tr>
+                <td>{{ actor.id }}</td>
+                <td>{{ actor.name }}</td>
+                <td>
+                    <a class="btn" href="{{ path('admin_actor_show', {'slug': actor.slug}) }}">{{ 'show'|trans }}</a>
+                    <a class="btn" href="{{ path('admin_actor_edit', {'slug': actor.slug}) }}">{{ 'update'|trans }}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">{{ 'no-result'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {% endblock %}

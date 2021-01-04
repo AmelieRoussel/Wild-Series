@@ -25,7 +25,7 @@
                 <div class="card mb-3" style="width: 24rem;">
                     <div class="card-img text-center">
                         <a href="{{ path("program_show", { slug: program.slug }) }}" class="card-link">
-                            <img class="poster" src="{{ program.poster }}" alt="{{ program.title }} poster">
+                            <img class="poster" src="{{ asset('uploads/' ~ program.poster) }}" alt="{{ program.title }} poster">
                         </a>
                     </div>
                     <div class="card-body d-flex flex-column justify-content-between">

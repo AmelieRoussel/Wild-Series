@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | {{ 'actor.update'|trans }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-4">{{ 'actor.update'|trans }}</h1>
+    <div class="container form">
+        {{ include('actor/admin/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <div class="back my-4">
+            {{ include('actor/admin/_delete_form.html.twig') }}
+        </div>
+
+        <div class="back my-4">
+            <a href="{{ path('admin_actor_index') }}">{{ 'back'|trans }}</a>
+        </div>
+    </div>
+{% endblock %}

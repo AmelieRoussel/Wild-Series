@@ -1,45 +1,52 @@
-account.logout: Se déconnecter
-account.login: Se connecter
+account.logout: 'Se déconnecter'
+account.login: 'Se connecter'
 category.category: Catégories
-no-series: Aucune série trouvée
+no-series: 'Aucune série trouvée'
 back: Retour
 actor.actor: Acteurs
-program.show: Voir les séries
-no-result: Aucun résultat trouvé
-email.please-confirm-email: Merci de confirmer votre adresse email
-email.confirm-email-link: Confirmez votre adresse email en suivant le lien suivant
-email.confirm-email: Confirmer mon adresse
-account.register: S'inscrire
+program.show: 'Voir les séries'
+no-result: 'Aucun résultat trouvé'
+email.please-confirm-email: 'Merci de confirmer votre adresse email'
+email.confirm-email-link: 'Confirmez votre adresse email en suivant le lien suivant'
+email.confirm-email: 'Confirmer mon adresse'
+account.register: 'S''inscrire'
 account.email: Email
-account.password: Mot de passe
-account.not-register-yet: Pas encore inscrit ?
+account.password: 'Mot de passe'
+account.not-register-yet: 'Pas encore inscrit ?'
 season.season: Saison
 number: Numéro
 year: Année
 description: Description
 update: Modifier
-season.update: Modifier une saison
+season.update: 'Modifier une saison'
 delete: Supprimer
-season.index: Liste des saisons
-season.add: Ajouter une saisons
+season.index: 'Liste des saisons'
+season.add: 'Ajouter une saisons'
 action: Action
 program.program: Séries
 episode.episode: Épisodes
 title: Titre
 synopsis: Résumé
-episode.index: Liste des épisodes
-episode.add: Ajouter un épisode
+episode.index: 'Liste des épisodes'
+episode.add: 'Ajouter un épisode'
 show: Afficher
-season.available: Saisons disponibles
-actor.no-actor: Aucun acteur trouvé
+season.available: 'Saisons disponibles'
+actor.no-actor: 'Aucun acteur trouvé'
 name: Nom
-program.add: Ajouter une série
+program.add: 'Ajouter une série'
 comment.comment: Commentaire
-comment.no-comment: Aucun commentaire
-comment.add: Ajouter un commentaire
+comment.no-comment: 'Aucun commentaire'
+comment.add: 'Ajouter un commentaire'
 send: Envoyer
 program: Séries
-program.all: Toutes les séries
-category.add: Ajouter une catégorie
+program.all: 'Toutes les séries'
+category.add: 'Ajouter une catégorie'
 add: Ajouter
-program.last: Les dernières séries
+program.last: 'Les dernières séries'
+picture: Photo
+actor.update: 'Modifier un acteur'
+actor.index: 'Liste des acteurs'
+actor.add: 'Ajouter un acteur'
+episode.update: 'Modifier un épisode'
+program.update: 'Modifier une série'
+program.index: 'Liste des séries'

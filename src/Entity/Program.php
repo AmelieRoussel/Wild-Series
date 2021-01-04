@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     fields={"title"},
  *     message="Cette série existe déja."
  * )
+ * @Vich\Uploadable
  */
 class Program
 {
@@ -44,6 +47,18 @@ class Program
     private $poster;
 
     /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="poster")
+     * @var File
+     * @Assert\File(
+     *     maxSize="100000",
+     *     maxSizeMessage="Le fichier doit faire moins de {{ limit }} octets.",
+     *     mimeTypes={"image/jpeg", "image/png", "image/jpg"},
+     *     mimeTypesMessage="Le fichier doit être au format .jpg, .png ou .jpeg."
+     * )
+     */
+    private $posterFile;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="programs")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -69,6 +84,11 @@ class Program
      * @ORM\JoinColumn(nullable=false)
      */
     private $owner;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -115,6 +135,20 @@ class Program
         $this->poster = $poster;
 
         return $this;
+    }
+
+    public function setPosterFile(File $image = null): Program
+    {
+        $this->posterFile = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+        return $this;
+    }
+
+    public function getPosterFile(): ?File
+    {
+        return $this->posterFile;
     }
 
     public function getCategory(): ?Category
@@ -195,7 +229,7 @@ class Program
     {
         $this->slug = $slug;
 
-        return  $this;
+        return $this;
     }
 
     public function getOwner(): ?User
@@ -206,6 +240,18 @@ class Program
     public function setOwner(?User $owner): self
     {
         $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

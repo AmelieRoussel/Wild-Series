@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class ActorController
+ * Class actorController
  * @package App\Controller
  * @Route("/actors", name="actor_")
  */

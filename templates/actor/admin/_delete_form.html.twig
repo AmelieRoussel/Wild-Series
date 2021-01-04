@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('admin_actor_delete', {'id': actor.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet acteur ?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actor.id) }}">
+    <button class="btn">{{ 'delete'|trans }}</button>
+</form>
