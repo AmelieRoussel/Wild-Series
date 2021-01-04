@@ -5,21 +5,27 @@
 {% block body %}
     <h1 class="text-center">{{ 'actor.actor'|trans }}</h1>
     <div class="container actor-index">
-        <div class="row mx-0 ml-md-3 justify-content-center justify-content-md-start">
+        <div class="row mx-0 ml-md-5 pl-md-5 justify-content-center justify-content-md-start">
             {% for actor in actors %}
-                <div class="card mb-3" style="width: 16rem; height: 10rem;">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h2 class="card-title">{{ actor.name }}</h2>
+                <div class="card mb-3" style="width: 187px;">
+                    <div class="card-img text-center">
                         <a href="{{ path("actor_show", { slug: actor.slug }) }}" class="card-link">
-                            {{ 'program.show'|trans }}
+                            <img class="picture" src="{{ asset('uploads/' ~ actor.picture) }}"
+                                 alt="{{ actor.name }} picture">
                         </a>
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div>
+                            <a href="{{ path("actor_show", { slug: actor.slug }) }}" class="card-link">
+                                <h2 class="card-title">{{ actor.name }}</h2>
+                            </a>
+                        </div>
                     </div>
                 </div>
             {% else %}
                 {{ 'no-result'|trans }}
             {% endfor %}
         </div>
-
         <div class="back my-4">
             <a href="{{ path('app_index') }}">
                 {{ 'back'|trans }}

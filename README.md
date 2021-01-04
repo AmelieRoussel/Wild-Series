@@ -51,3 +51,6 @@ https://www.loom.com/share/524dc75760c0436f81f7ca8c97f536b2
 
 Quête 26 :
 https://www.loom.com/share/530524759c0a46348597369293e57df5
+
+Quête 27 :
+https://www.loom.com/share/ed61c43cc1464a1ea5cc8640fc730831

@@ -43,7 +43,6 @@ class Actor
      * @var File
      * @Assert\File(
      *     maxSize="100000",
-     *     maxSizeMessage="Le fichier doit faire moins de {{ limit }} octets.",
      *     mimeTypes={"image/jpeg", "image/png", "image/jpg"},
      *     mimeTypesMessage="Le fichier doit être au format .jpg, .png ou .jpeg."
      * )
